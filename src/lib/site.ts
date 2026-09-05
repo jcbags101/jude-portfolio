@@ -25,7 +25,7 @@ export const site = {
   domain: "judebaguinang.com",
   url: "https://jude-portfolio.vercel.app",
   contact: {
-    email: "jmbaguinang@up.edu.ph",
+    email: "bjudeclarence@gmail.com",
     phone: "+63 950 502 0601",
     location: "Tacloban City, Philippines",
   },
