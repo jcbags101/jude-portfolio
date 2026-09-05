@@ -22,8 +22,8 @@ export const site = {
   tagline: "Full-stack developer, Philippines",
   description:
     "Jude Clarence Baguinang is a full-stack developer in the Philippines with 7+ years building production web and mobile apps — React, Next.js, Node.js, NestJS and TypeScript, from fintech wallets to multi-branch operations systems.",
-  domain: "judebaguinang.com",
-  url: "https://jude-portfolio.vercel.app",
+  domain: "judedev.built-for-you.online",
+  url: "https://judedev.built-for-you.online",
   contact: {
     email: "bjudeclarence@gmail.com",
     phone: "+63 950 502 0601",
