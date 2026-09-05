@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   LLS — editorial studio design system.
+   Paper + ink + one vermilion accent (pulled from the car wash
+   product itself). Deliberately NOT the dark/violet SaaS default.
+   --------------------------------------------------------------- */
+
+@theme {
+  /* Paper & ink */
+  --color-paper: #f2efe7;
+  --color-paper-2: #eae6dc;
+  --color-ink: #17150f;
+  --color-ink-2: #3d3932;
+  --color-ink-soft: #575248;
+  --color-rule: #cfc9ba;
+
+  /* Single accent — vermilion, echoes the shipped product's orange */
+  --color-accent: #d6401c;
+  --color-accent-soft: #f0d9d1;
+
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-mono: var(--font-mono-face), ui-monospace, "SF Mono", monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+/* ---------- Layout ---------- */
+@utility wrap {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 88rem;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .wrap {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Editorial hairline rule */
+@utility rule {
+  border-top: 1px solid var(--color-rule);
+}
+
+/* ---------- Type ---------- */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+/* Small uppercase mono label — the section/meta voice */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+@utility serif-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Motion (fails OPEN — see Reveal in ui.tsx) ---------- */
+.reveal[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.reveal[data-reveal="show"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Link underline that draws in on hover */
+.link-underline {
+  background-image: linear-gradient(var(--color-ink), var(--color-ink));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Subtle paper grain — kills the flat "generated" feel */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Used for a single frame to snap an element to its start state without
+   animating there; see useInView in components/motion.tsx. */
+.no-anim,
+.no-anim * {
+  transition: none !important;
+}
+
+/* ---------- Masked word reveal ---------- */
+/* Fails OPEN: words are visible until JS marks the block hidden. */
+.split-w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.split-i {
+  display: inline-block;
+  transition:
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-split="hidden"] .split-i {
+  transform: translateY(105%);
+  opacity: 0;
+}
+[data-split="show"] .split-i {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ---------- Image wipe ---------- */
+.wipe {
+  will-change: clip-path;
+  transition:
+    clip-path 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.6s ease;
+}
+.wipe[data-wipe="hidden"] {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+}
+.wipe[data-wipe="show"] {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+/* Settle: the image itself eases back to scale 1 behind the wipe. */
+.wipe img {
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wipe[data-wipe="hidden"] img {
+  transform: scale(1.08);
+}
+.wipe[data-wipe="show"] img {
+  transform: scale(1);
+}
+
+/* ---------- Ticker ---------- */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 42s linear infinite;
+}
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Index-row hover (capabilities) ---------- */
+.row-hover {
+  position: relative;
+  transition: color 0.4s ease;
+}
+.row-hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--color-accent);
+  opacity: 0.07;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.row-hover:hover::before {
+  width: 100%;
+}
+.row-arrow {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+.row-hover:hover .row-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-split="hidden"] .split-i,
+  [data-split="show"] .split-i {
+    transform: none;
+    opacity: 1;
+  }
+  .wipe,
+  .wipe[data-wipe="hidden"],
+  .wipe[data-wipe="show"] {
+    clip-path: none;
+    opacity: 1;
+  }
+  .wipe img { transform: none !important; }
+  .ticker-track { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal[data-reveal="hidden"] {
+    opacity: 1;
+    transform: none;
+  }
+}
