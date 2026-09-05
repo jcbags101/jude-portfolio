@@ -6,10 +6,12 @@
  */
 
 import type { StaticImageData } from "next/image";
+import platecost from "@/images/work/platecost.webp";
+import parfectly from "@/images/work/parfectly.webp";
 import roost from "@/images/work/roost.webp";
 import carwash from "@/images/work/carwash.webp";
+import asemco from "@/images/work/asemco.webp";
 import trussfolio from "@/images/work/trussfolio.webp";
-import galagrid from "@/images/work/galagrid.webp";
 import lingkod from "@/images/work/lingkod.webp";
 
 export const site = {
@@ -60,20 +62,44 @@ export type Project = {
 };
 
 export const featured: Project = {
-  name: "Roost",
-  kind: "Livestock & farm management SaaS",
+  name: "PlateCost",
+  kind: "Food-costing app for kitchens",
   year: "2026",
   blurb:
-    "A working farm runs on scattered notebooks and memory — which animal is conditioning, what was vaccinated when, whether the month actually made money. Roost puts the herd, its health, its breeding lines and the finances behind them in one dashboard, with role-based access so an owner and a farmhand see different things.",
-  href: "https://gamefowl-pro.vercel.app",
-  stack: ["Next.js 15", "TypeScript", "Prisma", "PostgreSQL (Neon)", "Tailwind"],
-  src: roost,
-  alt: "Roost dashboard showing herd totals, win rate, monthly performance chart and age distribution",
-  sizes: "(max-width: 768px) 100vw, 1280px",
-  note: "Live demo — sign in is pre-filled",
+    "Ingredient prices creep up a few centavos at a time, and a dish that used to make money quietly stops. PlateCost works out the true cost of every recipe down to the gram — ingredients, sub-recipes, packaging — then shows the margin and a suggested price. It runs offline in the kitchen, because that is where the costing actually happens.",
+  href: "https://platecost-delta.vercel.app/",
+  stack: ["Next.js", "TypeScript", "IndexedDB (offline-first)", "Tailwind"],
+  src: platecost,
+  alt: "PlateCost landing page showing a recipe cost breakdown for Chicken Adobo with cost per serving, food cost percentage and gross margin",
+  sizes: "(max-width: 768px) 100vw, 1328px",
+  note: "Free for 20 recipes — no account needed",
 };
 
 export const projects: Project[] = [
+  {
+    name: "Parfectly",
+    kind: "Multi-branch restaurant back office",
+    year: "2026",
+    blurb:
+      "A ledger-first inventory and purchasing system for restaurant groups — stock value, replenishment risk and branch performance in one view, with every movement traceable back to a document.",
+    href: "https://admin.parfectly.com/app/inventory",
+    stack: ["Next.js", "Prisma", "PostgreSQL (Neon)", "Recharts"],
+    src: parfectly,
+    alt: "Parfectly inventory overview showing inventory value, stock health and branch operating pulse",
+    sizes: "(max-width: 768px) 100vw, 880px",
+  },
+  {
+    name: "Roost",
+    kind: "Livestock & farm management",
+    year: "2026",
+    blurb:
+      "Herd records, health, breeding lines and farm finances in one dashboard, with role-based access so an owner and a farmhand see different things.",
+    href: "https://gamefowl-pro.vercel.app",
+    stack: ["Next.js 15", "Prisma", "Neon"],
+    src: roost,
+    alt: "Roost dashboard showing herd totals, win rate and monthly performance",
+    sizes: "(max-width: 768px) 100vw, 430px",
+  },
   {
     name: "Multi-branch car wash system",
     kind: "Operations platform",
@@ -84,7 +110,19 @@ export const projects: Project[] = [
     stack: ["Next.js", "Prisma", "PostgreSQL", "JWT auth"],
     src: carwash,
     alt: "Car wash executive dashboard with sales, live job status and per-branch revenue",
-    sizes: "(max-width: 768px) 100vw, 820px",
+    sizes: "(max-width: 768px) 100vw, 770px",
+  },
+  {
+    name: "ASEMCO Inn & Catering",
+    kind: "Hotel & events management",
+    year: "2026",
+    blurb:
+      "Rooms, bookings and function-room events for an inn that does both — a public booking front end over a staff-side management system.",
+    href: "https://asemco-hospitality.vercel.app/",
+    stack: ["Next.js 16", "Drizzle", "Supabase", "Better Auth"],
+    src: asemco,
+    alt: "ASEMCO Inn and Catering booking homepage with a room availability search",
+    sizes: "(max-width: 768px) 100vw, 540px",
   },
   {
     name: "Trussfolio",
@@ -96,19 +134,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Supabase", "Cloudinary", "Resend"],
     src: trussfolio,
     alt: "Trussfolio contractor directory homepage",
-    sizes: "(max-width: 768px) 100vw, 400px",
-  },
-  {
-    name: "GalaGrid",
-    kind: "Event-supplier marketplace",
-    year: "2026",
-    blurb:
-      "A marketplace pairing Filipino event organisers with suppliers — listings, search and booking in one place instead of a dozen Facebook pages.",
-    href: "https://galagrid-revamp.vercel.app",
-    stack: ["Next.js 16", "Supabase", "Cloudflare R2", "ImageKit"],
-    src: galagrid,
-    alt: "GalaGrid event supplier marketplace homepage",
-    sizes: "(max-width: 768px) 100vw, 720px",
+    sizes: "(max-width: 768px) 100vw, 880px",
   },
   {
     name: "Lingkod Pass",
@@ -120,7 +146,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Tailwind", "Supabase"],
     src: lingkod,
     alt: "Lingkod Pass civil service exam practice app homepage",
-    sizes: "(max-width: 768px) 100vw, 720px",
+    sizes: "(max-width: 768px) 100vw, 430px",
   },
 ];
 
@@ -160,6 +186,7 @@ export const clientWork: ClientWork[] = [
     name: "Tanod KontraCovid",
     detail:
       "COVID-19 contact-tracing and triage system used by local government units.",
+    href: "https://kontracovid.ph/home",
     via: "AI4GOV Solutions",
   },
 ];

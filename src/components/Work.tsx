@@ -3,6 +3,14 @@ import { featured, projects, clientWork } from "@/lib/site";
 import { Reveal } from "./ui";
 import { SplitWords, Wipe, Parallax } from "./motion";
 
+// Repeating asymmetric rhythm so the grid never settles into a uniform card wall.
+const SPANS = [
+  "md:col-span-8",
+  "md:col-span-4 md:pt-20",
+  "md:col-span-7 md:col-start-1",
+  "md:col-span-5 md:pt-16",
+];
+
 export function Work() {
   return (
     <section id="work" className="scroll-mt-20 py-20 md:py-28">
@@ -57,15 +65,7 @@ export function Work() {
             <Reveal
               key={p.name}
               delay={i * 60}
-              className={
-                i === 0
-                  ? "md:col-span-8"
-                  : i === 1
-                    ? "md:col-span-4 md:pt-20"
-                    : i === 2
-                      ? "md:col-span-7 md:col-start-1"
-                      : "md:col-span-5 md:pt-16"
-              }
+              className={SPANS[i % SPANS.length]}
             >
               <article>
                 <a
