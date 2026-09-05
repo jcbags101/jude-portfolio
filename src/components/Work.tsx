@@ -80,6 +80,10 @@ export function Work() {
                         src={p.src}
                         alt={p.alt}
                         placeholder="blur"
+                        // Only 7 screenshots, ~300KB total, already sized and
+                        // WebP. Lazy-loading them just meant an empty slot
+                        // until you scrolled to it.
+                        loading="eager"
                         sizes={p.sizes}
                         className="w-full transition-transform duration-700 group-hover:scale-[1.02]"
                       />

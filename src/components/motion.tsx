@@ -24,7 +24,11 @@ function prefersReduced() {
  * content renders VISIBLE by default and is only hidden once JS has
  * confirmed it is off-screen, so nothing can get stuck invisible.
  */
-function useInView<T extends HTMLElement>(attr: string, threshold = 0.15) {
+function useInView<T extends HTMLElement>(
+  attr: string,
+  threshold = 0.15,
+  rootMargin = "0px 0px -6% 0px"
+) {
   const ref = useRef<T | null>(null);
   // Only "idle" (visible, untouched) and "show" are React state. The "hidden"
   // start state is written straight to the DOM below, because React would
@@ -76,7 +80,7 @@ function useInView<T extends HTMLElement>(attr: string, threshold = 0.15) {
           obs.disconnect();
         }
       },
-      { threshold, rootMargin: "0px 0px -6% 0px" }
+      { threshold, rootMargin }
     );
     obs.observe(el);
 
@@ -94,7 +98,7 @@ function useInView<T extends HTMLElement>(attr: string, threshold = 0.15) {
       obs.disconnect();
       document.removeEventListener("visibilitychange", onHide);
     };
-  }, [attr, threshold]);
+  }, [attr, threshold, rootMargin]);
 
   return { ref, state };
 }
@@ -155,7 +159,10 @@ export function Wipe({
   className?: string;
   delay?: number;
 }) {
-  const { ref, state } = useInView<HTMLDivElement>("data-wipe", 0.1);
+  // Fires 400px before the image enters the viewport: the reveal is then
+  // already done when it scrolls into view, instead of the user watching a
+  // blank box animate in.
+  const { ref, state } = useInView<HTMLDivElement>("data-wipe", 0, "0px 0px 400px 0px");
   return (
     <div
       ref={ref}
