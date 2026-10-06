@@ -13,6 +13,11 @@ import carwash from "@/images/work/carwash.webp";
 import asemco from "@/images/work/asemco.webp";
 import trussfolio from "@/images/work/trussfolio.webp";
 import lingkod from "@/images/work/lingkod.webp";
+import slidequest from "@/images/work/slidequest.webp";
+import leadpilot from "@/images/work/leadpilot.webp";
+import salon from "@/images/work/salon.webp";
+import sabin from "@/images/work/sabin.webp";
+import builtforyou from "@/images/work/builtforyou.webp";
 
 export const site = {
   name: "Jude Clarence Baguinang",
@@ -147,6 +152,67 @@ export const projects: Project[] = [
     src: lingkod,
     alt: "Lingkod Pass civil service exam practice app homepage",
     sizes: "(max-width: 768px) 100vw, 430px",
+  },
+  {
+    name: "LeadPilot",
+    kind: "B2B lead intelligence & CRM",
+    year: "2026",
+    blurb:
+      "Finds businesses worth selling to, reads their site, scores the opportunity, and tells you who is ready to contact today — then keeps the pipeline honest once you start working it.",
+    href: "https://leadpilot-lake.vercel.app",
+    stack: ["Next.js 16", "Neon", "Groq", "Drizzle"],
+    src: leadpilot,
+    alt: "LeadPilot dashboard showing leads ready for outreach, pipeline stats and a sales funnel",
+    sizes: "(max-width: 768px) 100vw, 430px",
+    note: "Sign-in required",
+  },
+  {
+    name: "mylocalsalon",
+    kind: "Salon directory & booking",
+    year: "2026",
+    blurb:
+      "A premium editorial rebuild of an Australian hair, beauty and day-spa directory — search, salon profiles and appointment booking in one place.",
+    href: "https://salon.built-for-you.online",
+    stack: ["Next.js 16", "Tailwind", "Supabase"],
+    src: salon,
+    alt: "mylocalsalon homepage for booking hair, beauty and day spa appointments",
+    sizes: "(max-width: 768px) 100vw, 770px",
+  },
+  {
+    name: "SlideQuest",
+    kind: "Classroom games for teachers",
+    year: "2026",
+    blurb:
+      "Gamified lesson decks that run themselves in the browser — the things a PowerPoint game always had to fake (scoring, turns, randomness) actually work here.",
+    href: "https://slidequest.app",
+    stack: ["Next.js 16", "TypeScript", "Tailwind"],
+    src: slidequest,
+    alt: "SlideQuest homepage — classroom games that run themselves",
+    sizes: "(max-width: 768px) 100vw, 880px",
+  },
+  {
+    name: "Sabin Resort",
+    kind: "Resort website redesign",
+    year: "2026",
+    blurb:
+      "A redesign for a bayside resort in Ormoc City — rooms, amenities and enquiries, rebuilt to actually look like the place it is selling.",
+    href: "https://sabin.yealinhouse.com",
+    stack: ["Next.js", "Tailwind", "Vercel"],
+    src: sabin,
+    alt: "Sabin Resort homepage, a paradise by the bay in Ormoc City",
+    sizes: "(max-width: 768px) 100vw, 540px",
+  },
+  {
+    name: "Built for You",
+    kind: "Web studio site",
+    year: "2026",
+    blurb:
+      "A small studio front for modern local-business websites — the shop window for the client work that pays for the rest of this list.",
+    href: "https://built-for-you.online",
+    stack: ["Next.js", "Tailwind", "Vercel"],
+    src: builtforyou,
+    alt: "Built for You homepage — modern websites for local business",
+    sizes: "(max-width: 768px) 100vw, 880px",
   },
 ];
 
