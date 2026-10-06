@@ -67,17 +67,16 @@ export type Project = {
 };
 
 export const featured: Project = {
-  name: "PlateCost",
-  kind: "Food-costing app for kitchens",
+  name: "mylocalsalon",
+  kind: "Salon directory & booking — Australia",
   year: "2026",
   blurb:
-    "Ingredient prices creep up a few centavos at a time, and a dish that used to make money quietly stops. PlateCost works out the true cost of every recipe down to the gram — ingredients, sub-recipes, packaging — then shows the margin and a suggested price. It runs offline in the kitchen, because that is where the costing actually happens.",
-  href: "https://platecost-delta.vercel.app/",
-  stack: ["Next.js", "TypeScript", "IndexedDB (offline-first)", "Tailwind"],
-  src: platecost,
-  alt: "PlateCost landing page showing a recipe cost breakdown for Chicken Adobo with cost per serving, food cost percentage and gross margin",
+    "Finding a hairdresser usually means a dozen browser tabs and a phone call during business hours. mylocalsalon is a premium rebuild of an Australian hair, beauty and day-spa directory: search by service and suburb, read a salon's real profile, and book an appointment in the same place — designed to look like somewhere you would actually trust with your hair.",
+  href: "https://salon.built-for-you.online",
+  stack: ["Next.js 16", "TypeScript", "Supabase", "Tailwind"],
+  src: salon,
+  alt: "mylocalsalon homepage for booking hair, beauty and day spa appointments",
   sizes: "(max-width: 768px) 100vw, 1328px",
-  note: "Free for 20 recipes — no account needed",
 };
 
 export const projects: Project[] = [
@@ -163,20 +162,20 @@ export const projects: Project[] = [
     stack: ["Next.js 16", "Neon", "Groq", "Drizzle"],
     src: leadpilot,
     alt: "LeadPilot dashboard showing leads ready for outreach, pipeline stats and a sales funnel",
-    sizes: "(max-width: 768px) 100vw, 430px",
+    sizes: "(max-width: 768px) 100vw, 770px",
     note: "Sign-in required",
   },
   {
-    name: "mylocalsalon",
-    kind: "Salon directory & booking",
+    name: "PlateCost",
+    kind: "Food costing for kitchens",
     year: "2026",
     blurb:
-      "A premium editorial rebuild of an Australian hair, beauty and day-spa directory — search, salon profiles and appointment booking in one place.",
-    href: "https://salon.built-for-you.online",
-    stack: ["Next.js 16", "Tailwind", "Supabase"],
-    src: salon,
-    alt: "mylocalsalon homepage for booking hair, beauty and day spa appointments",
-    sizes: "(max-width: 768px) 100vw, 770px",
+      "Works out the true cost of every dish down to the gram — ingredients, sub-recipes, packaging — then shows the margin and a suggested price. Runs offline, because that is where costing actually happens.",
+    href: "https://platecost-delta.vercel.app/",
+    stack: ["Next.js", "TypeScript", "IndexedDB", "Tailwind"],
+    src: platecost,
+    alt: "PlateCost recipe cost breakdown showing cost per serving, food cost percentage and gross margin",
+    sizes: "(max-width: 768px) 100vw, 540px",
   },
   {
     name: "SlideQuest",
@@ -200,7 +199,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Tailwind", "Vercel"],
     src: sabin,
     alt: "Sabin Resort homepage, a paradise by the bay in Ormoc City",
-    sizes: "(max-width: 768px) 100vw, 540px",
+    sizes: "(max-width: 768px) 100vw, 430px",
   },
   {
     name: "Built for You",
@@ -212,7 +211,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Tailwind", "Vercel"],
     src: builtforyou,
     alt: "Built for You homepage — modern websites for local business",
-    sizes: "(max-width: 768px) 100vw, 880px",
+    sizes: "(max-width: 768px) 100vw, 770px",
   },
 ];
 
